@@ -17,16 +17,21 @@
 [root@localhost vim]# sh ./setup.sh
 ```
 
-{% hint style="info" %}
- Super-powers are granted randomly so please submit an issue if you're not happy with yours.
-{% endhint %}
+打开vim编辑器
 
-Once you're strong enough, save the world:
+安装vim插件
 
+```text
+:PluginInstall
 ```
-// Ain't no code for that yet, sorry
-echo 'You got to trust m e on this, I saved the world'
+
+安装golang插件
+
+```text
+:GoInstallBinaries
 ```
+
+重新打开vim编辑器
 
 
 
