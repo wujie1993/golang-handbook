@@ -1,4 +1,4 @@
-# Initial page
+# 主页
 
 ## Getting Super Powers
 
