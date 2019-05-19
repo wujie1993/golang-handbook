@@ -17,7 +17,7 @@
 
 ```text
 export PATH=$PATH:/usr/local/go/bin:/root/go/bin
-export PATH=$GOPATH:/root/go
+export GOPATH=/root/go
 ```
 
 让环境变量配置生效
