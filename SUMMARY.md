@@ -10,7 +10,8 @@
 
 ## 基础
 
-* [项目结构](ji-chu/xiang-mu-jie-gou.md)
+* [Hello world](ji-chu/xiang-mu-jie-gou.md)
+* [包的引用](ji-chu/bao-de-yin-yong.md)
 * [类型](ji-chu/lei-xing/README.md)
   * [变量](ji-chu/lei-xing/bian-liang.md)
   * [常量](ji-chu/lei-xing/chang-liang.md)

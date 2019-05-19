@@ -1,4 +1,4 @@
-# 项目结构
+# Hello world
 
 一个标准的`golang`项目主要分为两种：包和程序
 
@@ -9,31 +9,8 @@
 例子：定义一个包
 
 ```go
-// 定义一个包A
-package A
-```
-
-当一个包中需要用到另一个包中的内容时，可以对另一个包进行引用，关键字为`import`。进行包引用时需要指定被引用的包的路径，先是在`$GOROOT/src`路径下找，再到`$GOPATH/src`路径下找，最后到当前项目中的`vendor`路径下找
-
-{% hint style="info" %}
-不可以将包名定义为vendor
-{% endhint %}
-
-{% hint style="info" %}
-包的引用不能出现循环引用，以下用法是错误的：
-
-1. 包A引用了包B，包B引用包A
-2. 包A引用了包B，包B引用了包C，包C引用包A
-{% endhint %}
-
-例子：包A引用包B
-
-```text
-// 定义一个包A
-package A
-
-// 引用包B
-import "B"
+// 定义一个包a
+package a
 ```
 
 ## 程序
@@ -63,10 +40,11 @@ func main(){
 在`$GOPATH/src`路径下创建目录`helloworld`，并在该目录中创建上述文件`main.go`，执行以下命令运行程序：
 
 ```bash
+// go run {文件名} 指定入口方法所在的文件路径
 go run main.go
 ```
 
-
+## 
 
 
 
