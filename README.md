@@ -1,23 +1,22 @@
 # 主页
 
-## Getting Super Powers
+## 概述
 
-Becoming a super hero is a fairly straight forward process:
+golang是由google开源的面向对象语言，支持跨平台开发，支持与c语言的混合编译。其突出特点在于其轻量高效，编写的代码简洁易懂。具有非侵入式的接口和轻量级协程。
 
-```
-$ give me super-powers
-```
+### 官方首页
 
-{% hint style="info" %}
- Super-powers are granted randomly so please submit an issue if you're not happy with yours.
-{% endhint %}
+{% embed url="https://golang.org/" %}
 
-Once you're strong enough, save the world:
+### 代码仓库
 
-```
-// Ain't no code for that yet, sorry
-echo 'You got to trust me on this, I saved the world'
-```
+{% embed url="https://github.com/golang/go" %}
+
+### 练习
+
+{% embed url="https://play.golang.org/" %}
+
+
 
 
 
