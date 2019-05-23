@@ -1,17 +1,6 @@
 # Hello world
 
-一个标准的`golang`项目主要分为两种：包和程序
-
-## 包
-
-将项目根据代码的逻辑或结构进行拆分，形成包，关键字`package`。通常以目录为单位定义包，包名与目录名保持一致
-
-例子：定义一个包
-
-```go
-// 定义一个包a
-package a
-```
+一个标准的`golang`项目主要分为两种：程序和包
 
 ## 程序
 
@@ -37,11 +26,20 @@ func main(){
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-在`$GOPATH/src`路径下创建目录`helloworld`，并在该目录中创建上述文件`main.go`，执行以下命令运行程序：
+在`$GOPATH/src`路径下创建目录`helloworld`，并在该目录中创建上述文件`main.go`，执行以下命令执行代码：
 
 ```bash
 // go run {文件名} 指定入口方法所在的文件路径
 go run main.go
+```
+
+或者对代码进行编译，生成二进制可执行文件，通过二进制文件执行
+
+```bash
+// 编译代码，编译时会在当前目录中寻找package main和其中的func main,编译后会默认生成一个与当前目录同名的二进制可执行文件，也可以通过-o参数指定输出路径
+go build
+// 执行程序
+./helloworld
 ```
 
 ## 
