@@ -109,7 +109,7 @@ import (
 
 // 定义包初始化方法，在别的包引用到包a时，会首先执行该方法
 func init() {
-        fmt.Println("init package in here")
+        fmt.Println("Initialize the package here")
 }
 ```
 
@@ -142,7 +142,7 @@ import (
 2. 包a引用了包b，包b引用了包c，包c引用包a
 {% endhint %}
 
-## 可见性
+## 可访问性
 
 只有首字母为大写的内容才可以被别的包调用到
 

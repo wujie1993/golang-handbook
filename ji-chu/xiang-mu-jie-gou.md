@@ -6,7 +6,7 @@
 
 程序项目可编译出二进制可执行程序，必须以`package main`定义一个程序入口包，并在该包中定义一个`func main()`方法，作为程序的入口方法。程序执行时会从main方法开始执行，在main方法执行完成后，程序的进程也会随着结束
 
-例子：Hello world程序
+例子：Hello,world!
 
 {% code-tabs %}
 {% code-tabs-item title="main.go" %}
@@ -25,6 +25,8 @@ func main(){
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
+
+{% embed url="https://play.golang.org/p/I6Kx7guxUmm" caption="在线例子：Hello,world!" %}
 
 在`$GOPATH/src`路径下创建目录`helloworld`，并在该目录中创建上述文件`main.go`，执行以下命令执行代码：
 

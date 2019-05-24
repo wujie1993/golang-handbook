@@ -1,13 +1,11 @@
 # 字符
 
-支持2种字符类型：`byte`和`rune`
+支持两种字符类型：`byte`和`rune`，使用符号`''`表示字符字面常量
 
-| 类型 | 字节长度 | 编码 |
+| 类型 | 长度（byte） | 编码 |
 | :--- | :--- | :--- |
-| byte | 1 | UTF-8 |
-| rune | 4 | Unicode |
-
-从源码角度看，`byte`等同于`uint8`，`rune`等同于`uint32`
+| byte | 1（同uint8） | UTF-8 |
+| rune | 4（同uint32） | Unicode |
 
 例子：定义字符
 
