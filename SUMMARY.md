@@ -20,6 +20,7 @@
   * [浮点型](ji-chu/lei-xing/fu-dian-xing.md)
   * [复数](ji-chu/lei-xing/fu-shu.md)
   * [布尔型](ji-chu/lei-xing/bu-er-xing.md)
+  * [字符](ji-chu/lei-xing/zi-fu.md)
   * [字符串](ji-chu/lei-xing/zi-fu-chuan.md)
   * [数组](ji-chu/lei-xing/shu-zu.md)
   * [切片](ji-chu/lei-xing/qie-pian.md)

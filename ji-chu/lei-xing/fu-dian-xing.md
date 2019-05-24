@@ -1,17 +1,20 @@
 # 浮点型
 
-浮点型表示数字浮点数
+浮点型表示带小数位的数字，或称浮点数。
 
-| 类型 |  |
-| :--- | :--- |
-| float32 |  |
-| float64 |  |
+浮点型在内存中的表示包含三个部分：符号位，指数位和有效数字位
+
+| 类型 | 长度（byte） | 指数位（bit） | 有效数字位（bit） |
+| :--- | :--- | :--- | :--- |
+| float32 | 4 | 8 | 23 |
+| float64 | 8 | 11 | 52 |
 
 例子： 定义浮点型
 
 ```go
 var speed float32
 speed = 35.75
+height := 1.78
 ```
 
 {% hint style="info" %}
@@ -37,6 +40,8 @@ func main() {
 }
 ```
 
+{% embed url="https://play.golang.org/p/K78gDWz1iuV" caption="在线例子：存在误差的浮点数比较" %}
+
 以上代码的执行输出结果会是`false`
 
 例子：根据精度比较浮点数
@@ -59,6 +64,8 @@ func IsEqual(x float64, y float64, precision float64) bool {
 	return math.Abs(x-y) < precision
 }
 ```
+
+{% embed url="https://play.golang.org/p/gmV-x4w9\_Td" caption="在线例子：根据精度比较浮点数" %}
 
 以上代码的输出结果会是`true`
 
