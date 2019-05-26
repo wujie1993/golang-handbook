@@ -210,7 +210,7 @@ func main() {
 [mike lili mary tony lucy egg milk]
 ```
 
-## 切片合并
+## 切片元素合并
 
 可以通过关键字`...`，将切片拆分为多个独立元素，将拆分后的元素传入`append()`方法即可完成切片合并
 
@@ -273,5 +273,50 @@ func main() {
 
 ```text
 [mike lili tony lucy]
+```
+
+## 切片元素复制
+
+可通过内置方法`copy()`，实现切片复制。在复制切片时，如果目标切片长度小于源切片长度，源切片中多出的部分会被忽略掉；如果目标切片长度大于源切片长度，目标切片多出的部分内容会保持不变。
+
+例子：切片元素复制
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var s1 []string = []string{"mike", "lili", "mary", "tony", "lucy"}
+	fmt.Println(s1)
+
+	// 目标切片长度与源切片长度一致
+	var s2 []string = make([]string, 5)
+	copy(s2, s1)
+	fmt.Println(s2)
+
+	// 目标切片长度大于源切片长度
+	var s3 []string = make([]string, 7)
+	copy(s3, s1)
+	fmt.Println(s3)
+
+	// 目标切片长度小于源切片长度
+	var s4 []string = make([]string, 3)
+	copy(s4, s1)
+	fmt.Println(s4)
+}
+```
+
+{% embed url="https://play.golang.org/p/FFIV32D0MA5" %}
+
+以上代码的执行结果：
+
+```text
+[mike lili mary tony lucy]
+[mike lili mary tony lucy]
+[mike lili mary tony lucy  ]
+[mike lili mary]
 ```
 
