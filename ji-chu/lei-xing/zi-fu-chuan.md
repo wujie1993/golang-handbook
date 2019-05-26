@@ -95,7 +95,71 @@ func main() {
 
 例子：字符串的多种类型转换
 
-```text
+```go
+package main
 
+import (
+	"fmt"
+	"strconv"
+)
+
+func main() {
+	var v1 bool
+	// 将字符串转换为布尔型
+	v1, _ = strconv.ParseBool("true")
+	fmt.Println(v1)
+
+	var v2 float64
+	// 将字符串转换为浮点型，第二位参数为浮点型数的位数
+	v2, _ = strconv.ParseFloat("2131.393", 64)
+	fmt.Println(v2)
+
+	var v3 int64
+	// 将字符串换算为整型，第二位参数表示以多少位进制进行换算，第三位为换算后的数值位数
+	v3, _ = strconv.ParseInt("-116", 10, 64)
+	fmt.Println(v3)
+
+	var v4 uint64
+	// 将字符串换算为无符号整型，第二位参数表示以多少位进制进行换算，第三位为换算后的数值位数
+	v4, _ = strconv.ParseUint("23", 10, 64)
+	fmt.Println(v4)
+
+	var v5 string
+	// 将布尔型转换为字符串
+	v5 = strconv.FormatBool(false)
+	fmt.Println(v5)
+
+	var v6 string
+	// 将浮点型转换为字符串，第二位参数表示输出格式，'f'为普通显示方式，取小数点后的位数做为精确位数，'e'与'E'为指数形式，'g'与'G'以有效数字位数做为精确位数，第三位表示数值精确位数，第四位表示数值所占空间位数
+	v6 = strconv.FormatFloat(3.141592679, 'f', 6, 64)
+	fmt.Println(v6)
+
+	var v7 string
+	// 将布尔型转换为整型
+	v7 = strconv.FormatInt(-667434, 10)
+	fmt.Println(v7)
+
+	var v8 string
+	// 将布尔型转换为整型
+	v8 = strconv.FormatUint(32434, 10)
+	fmt.Println(v8)
+}
 ```
+
+{% embed url="https://play.golang.org/p/shrekBJB5KR" caption="在线例子：字符串的多种类型转换" %}
+
+以上代码的执行结果如下：
+
+```text
+true
+2131.393
+-116
+23
+false
+3.141593
+-667434
+32434
+```
+
+
 
