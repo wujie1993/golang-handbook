@@ -34,8 +34,6 @@
   * [循环](ji-chu/yu-fa/xun-huan.md)
   * [错误处理](ji-chu/yu-fa/cuo-wu-chu-li.md)
 * [协程](ji-chu/xie-cheng/README.md)
-  * [使用场景](ji-chu/xie-cheng/shi-yong-chang-jing.md)
-  * [锁](ji-chu/xie-cheng/suo.md)
   * [通道](ji-chu/xie-cheng/tong-dao.md)
   * [上下文](ji-chu/xie-cheng/shang-xia-wen-guan-li.md)
 * [测试](ji-chu/ce-shi/README.md)
