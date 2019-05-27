@@ -33,6 +33,7 @@ go语言中预先定义了几个常量：`true`、`false`和`iota`
 
 ```go
 const (
+    None = iota // 取值0
     Monday = iota // 取值1
     Tuesday = iota // 取值2
     Wednesday = iota // 取值3
@@ -55,7 +56,8 @@ const (
 
 ```go
 const (
-    Monday = iota // 取值1
+    None = iota // 取值0
+    Monday // 取值1
     Tuesday // 取值2
     Wednesday // 取值3
     Thusday // 取值4
