@@ -320,3 +320,40 @@ func main() {
 [mike lili mary]
 ```
 
+## 切片引用传递
+
+切片中内置了指向数组的指针，对于切片的元素的读写是通过指针寻址到对应的源数组元素中进行读写的。在通过方法传参数时，虽然会重新在方法体中复制一个新的切片，但是新切片中的指针值是不变的，还是指向了原来的数组，因此在方法体内去修改切片的值，方法体外的切片值也会随着修改，两者指向的是同一个内存空间的数组。
+
+例子：切片引用传递
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var s1 []string = []string{"mike", "lili", "mary", "tony", "lucy"}
+	fmt.Println(s1)
+
+	// 修改切片s1中下标为2的值为"mark"
+	ChangeSlice(s1, 2, "mark")
+	fmt.Println(s1)
+}
+
+// 定义一个方法，该方法的作用是为切片slice中下标为index的元素赋值value
+func ChangeSlice(slice []string, index int, value string) {
+	slice[index] = value
+}
+```
+
+{% embed url="https://play.golang.org/p/IOdhgygL3tl" caption="在线例子：切片引用传递" %}
+
+以上代码的执行结果：
+
+```text
+[mike lili mary tony lucy]
+[mike lili mark tony lucy]
+```
+
