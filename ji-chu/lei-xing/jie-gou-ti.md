@@ -142,5 +142,60 @@ func main() {
 My name is tony,weight 147.800003
 ```
 
+结构体方法在执行的时候，会在内存中创建一个新的结构体并执行其中的方法，也就是说，在结构体方法中修改原结构体的内容是不生效的。我们可以借助于指针的引用传递效果，定义一个结构体指针方法，在该指针上调用方法时，可以借助于指针寻址到源结构体，从而修改源结构体中的值，达到在结构体方法中修改结构体值的效果
 
+例子：结构体指针方法
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+// 定义一个名为Person的结构体
+type Person struct {
+	// 定义字符串类型字段Name，
+	Name string
+	// 定义整型字段Age
+	Age int8
+	// 定义私有浮点型字段weight
+	weight float32
+}
+
+func (p *Person) ChangeName(newName string) {
+	p.Name = newName
+}
+
+func main() {
+	// 定义一个Person类型的结构体指针,并初始化其中的字段值
+	var p1 *Person = &Person{
+		Name:   "tony",
+		Age:    32,
+		weight: 147.8,
+	}
+
+	fmt.Println(p1.Name)
+
+	// 通过结构体指针方法修改结构体中的值
+	p1.ChangeName("mike")
+
+	fmt.Println(p1.Name)
+}
+```
+
+{% embed url="https://play.golang.org/p/gEgUAh0HV8p" caption="在线例子：结构体指针方法" %}
+
+以上代码的执行结果：
+
+```text
+tony
+mike
+```
+
+{% hint style="info" %}
+结构体指针方法只能通过结构体指针调用
+{% endhint %}
+
+结构体指针也可以调用结构体方法，在调用时，首先会把结构体方法转换成结构体指针方法，再对该转换后的结构体指针方法进行调用
 
