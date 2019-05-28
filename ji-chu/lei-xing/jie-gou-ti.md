@@ -199,3 +199,61 @@ mike
 
 结构体指针也可以调用结构体方法，在调用时，首先会把结构体方法转换成结构体指针方法，再对该转换后的结构体指针方法进行调用
 
+## 结构体继承
+
+结构体是每个面向对象语言都具有的特性，在golang中同样支持结构体继承，只是实现上没有那么复杂，其本质是对于结构体的层层嵌套，通过语法糖的形式缩写调用语句。
+
+例子：结构体继承
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+// 定义结构体类型Ship
+type Ship struct{}
+
+// 为结构体类型Ship定义方法Ship()
+func (b Ship) Sail() {
+	fmt.Println("sailing the ship")
+}
+
+// 定义结构体类型Battleship
+type Battleship struct {
+	// 继承Ship
+	Ship
+}
+
+func main() {
+	// 定义Ship类型的变量s1
+	var s1 Ship
+	// 定义Battleship类型的变量s2
+	var s2 Battleship
+
+	// 直接调用s1的方法
+	s1.Sail()
+	// 通过语法糖隐式调用继承方法
+	s2.Sail()
+	// 显式调用继承方法
+	s2.Ship.Sail()
+}
+```
+
+{% embed url="https://play.golang.org/p/5GByIq3bpsM" caption="在线例子：结构体继承" %}
+
+以上代码的执行结果：
+
+```text
+sailing the ship
+sailing the ship
+sailing the ship
+```
+
+{% hint style="info" %}
+语法糖指的是开发语言为了便利编写者而支持的一些简易语法
+{% endhint %}
+
+
+

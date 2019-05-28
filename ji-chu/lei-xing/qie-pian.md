@@ -299,6 +299,8 @@ func main() {
 
 	// 目标切片长度大于源切片长度
 	var s3 []string = make([]string, 7)
+	s3[5] = "maru"
+	s3[6] = "bruce"
 	copy(s3, s1)
 	fmt.Println(s3)
 
@@ -309,14 +311,14 @@ func main() {
 }
 ```
 
-{% embed url="https://play.golang.org/p/FFIV32D0MA5" %}
+{% embed url="https://play.golang.org/p/c33iErRRPbw" caption="在线例子：切片元素复制" %}
 
 以上代码的执行结果：
 
 ```text
 [mike lili mary tony lucy]
 [mike lili mary tony lucy]
-[mike lili mary tony lucy  ]
+[mike lili mary tony lucy maru bruce]
 [mike lili mary]
 ```
 
