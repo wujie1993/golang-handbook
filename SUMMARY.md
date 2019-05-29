@@ -26,6 +26,7 @@
   * [切片](ji-chu/lei-xing/qie-pian.md)
   * [字典](ji-chu/lei-xing/zi-dian.md)
   * [指针](ji-chu/lei-xing/zhi-zhen.md)
+  * [方法](ji-chu/lei-xing/fang-fa.md)
   * [结构体](ji-chu/lei-xing/jie-gou-ti.md)
   * [接口](ji-chu/lei-xing/jie-kou.md)
   * [自定义类型](ji-chu/lei-xing/zi-ding-yi-lei-xing.md)
