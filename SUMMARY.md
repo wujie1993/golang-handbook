@@ -70,4 +70,6 @@
   * [问题管理](xiang-mu-guan-li/cang-ku-guan-li/wen-ti-guan-li.md)
   * [里程碑管理](xiang-mu-guan-li/cang-ku-guan-li/li-cheng-bei-guan-li.md)
   * [发布管理](xiang-mu-guan-li/cang-ku-guan-li/fa-bu-guan-li.md)
+* [持续集成](xiang-mu-guan-li/chi-xu-ji-cheng/README.md)
+  * [CircleCI](xiang-mu-guan-li/chi-xu-ji-cheng/circleci.md)
 
