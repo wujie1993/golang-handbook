@@ -1,8 +1,14 @@
 # 上下文
 
-协程有一个运行特点，是其本身不受其他协程的影响，在编码上如果不留神，有可能会出现一直运行驻留在内存区的协程，形成僵尸协程。随着运行时间的迁移，僵尸协程不断增多，会进而影响到系统的稳定性。
+协程有一个运行特点，是其本身不受其他协程的影响，在编码上如果处理不当，有可能会出现一直驻留在内存区的协程，形成僵尸协程。随着运行时间的迁移，僵尸协程不断增多，会进而影响到系统的稳定性。
 
-在内置包`context`中，有一种`Context`结构可以用于应对这种场景，实现对于协程的批量管理。其原理是在主方法创建一个context，并将其传入协程中，协程中会不断地的检查该`context`状态，如果是`Done`则说明协程应该退出了，否则会继续执行协程中的任务。在主方法中，当确认协程需要退出时，会调用`context`产生的`Cancel()`方法，这会给其之下的每个协程中的`Context`发送信号，将状态置为`Done`，协程们发现`Context`为`Done`状态时，就可以退出协程。
+在内置包`context`中，有一种Context结构可以用于应对这种场景，实现对于协程的批量管理。其原理是在主方法创建一个Context对象，通过该对象再派生出子Context对象，子Context对象可以包含像是超时时间，截止时间，终止方法，携带参数等属性。
+
+将派生出的子Context以参数的形式传入协程方法中，协程中的任务在循环执行的间隔期不断地通过select语句检查该子Context状态的Done通道，如果接收到信号则说明上下文被关闭，当前协程应该退出了，否则会继续执行协程中的任务。
+
+在主方法中，当确认协程需要退出时，会调用Context创建时产生的Cancel\(\)方法，这时该Context和该Context所派生的每个子Context都会在其Done通道中接收到结束信号，协程获取到该结束信号后，就可以终止运行退出协程。
+
+Context是一个协程安全的类型，可以将同一个Context传递给不同的协程方法使用
 
 例子：通过上下文管理协程
 
@@ -12,21 +18,30 @@ package main
 import (
 	"context"
 	"fmt"
+	"sync"
 	"time"
 )
 
-func doSomething(ctx context.Context) {
-	// 执行工作任务
+// doSomething 方法中会执行一个循环任务，在每个循环执行的周期内都会检查上下文状态，
+// 如果上下文接收到Done信号，则终止任务
+func doSomething(ctx context.Context, waitgroup *sync.WaitGroup) {
+	// 结束方法时释放一个协程计数器
+	defer func() {
+		waitgroup.Done()
+	}()
+
+	fmt.Println("start doing jobs.")
+	// 执行工作任务，用时6秒
 	for i := 0; i < 6; i++ {
-		// 检查上下文状态，如果非Done继续执行工作，Done则停止并跳出方法
+		// 执行任务
+		fmt.Printf("doing job %d\n", i)
+		time.Sleep(time.Second)
+		// 检查上下文状态，如果接收到Done信号则终止任务，否则进入下一个循环
 		select {
 		case <-ctx.Done():
 			fmt.Println("stop doing jobs")
 			return
 		default:
-			// 执行工作
-			time.Sleep(time.Second)
-			fmt.Println("do some jobs")
 		}
 	}
 	fmt.Println("finish jobs.")
@@ -35,35 +50,46 @@ func doSomething(ctx context.Context) {
 func main() {
 	fmt.Println("Hello World")
 
-	// 创建上下文
+	// 初始化等待组，用于阻塞主方法直到所有协程执行完毕
+	var waitgroup sync.WaitGroup
+
+	// 添加一个协程计数器
+	waitgroup.Add(1)
+
+	// 首先在主方法体中通过context.Background()创建一个上下文，做为根级上下文，只用于派生子上下文，不做其他用途
+	// 通过根级上下文进行派生，获得一个子上下文以及子上下文的终止方法
 	ctx, cancel := context.WithCancel(context.Background())
 
-	// 执行协程，传入上下文
-	go doSomething(ctx)
+	// 执行协程方法，并将上下文和等待组做为参数传入，该方法运行耗时6秒
+	go doSomething(ctx, &waitgroup)
 
-	// 等待3秒后关闭上下文
+	// 等待3秒后执行子上下文的终止方法，关闭上下文
 	go func() {
+		fmt.Println("stop doing jobs in 3 seconds")
 		time.Sleep(3 * time.Second)
 		cancel()
 	}()
 
-	// 等待5秒后关闭上下文
-	time.Sleep(5 * time.Second)
+	// 阻塞主方法直到协程计数器归零
+	waitgroup.Wait()
 
 	fmt.Println("Finished Execution")
 }
+
 ```
 
-{% embed url="https://play.golang.org/p/gf7Cmo5yOeU" caption="在线例子：通过上下文管理协程" %}
+{% embed url="https://play.golang.org/p/Sgt\_f3cbhdJ" caption="在线例子：通过上下文管理协程" %}
 
 以上代码的执行结果
 
 ```text
 Hello World
-do some jobs
-do some jobs
-do some jobs
-do some jobs
+stop doing jobs in 3 seconds
+start doing jobs.
+doing job 0
+doing job 1
+doing job 2
+doing job 3
 stop doing jobs
 Finished Execution
 ```
