@@ -60,5 +60,65 @@ Inside my goroutine
 Finished Execution
 ```
 
+通常情况下通道是双向的，可读也可写。除此之外，出于安全性考虑，还分出了只读通道和只写通道两种单向通道。单向可以由双向通道转换，但不能转换回双向通道。
+
+定义只读通道：
+
+```text
+var <-chan {通道类型}
+```
+
+定义只写通道：
+
+```text
+var chan<- {通道类型}
+```
+
+例子：使用单向通道
+
+```go
+package main
+
+import (
+	"fmt"
+	"sync"
+)
+
+// writeChan 将数据写入单向通道
+func writeChan(wc chan<- string, wg *sync.WaitGroup) {
+	wc <- "hello"
+	wg.Done()
+}
+
+// readChan 从单向通道中读取数据并输出
+func readChan(rc <-chan string, wg *sync.WaitGroup) {
+	fmt.Println(<-rc)
+	wg.Done()
+}
+
+func main() {
+	var waitGroup sync.WaitGroup
+
+	var c chan string = make(chan string)
+
+	waitGroup.Add(2)
+	// 将双向通道转为只读通道
+	go readChan(c, &waitGroup)
+	// 将双向通道转为只写通道
+	go writeChan(c, &waitGroup)
+
+	waitGroup.Wait()
+}
+
+```
+
+{% embed url="https://play.golang.org/p/9C\_r3zEqSPV" caption="例子：使用单向通道" %}
+
+以上代码的运行结果：
+
+```text
+hello
+```
+
 
 
