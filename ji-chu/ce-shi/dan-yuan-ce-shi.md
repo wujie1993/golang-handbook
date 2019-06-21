@@ -79,11 +79,11 @@ ok  	_/root/Projects/demo/unittest	0.003s
 * 测试方法格式：`func TestXxx (t *testing.T)`,`Xxx`部分可以为任意的字母数字的组合，但是首字母必须是大写；
 * 函数中通过调用`testing.T`的`Error`, `Errorf`, `FailNow`, `Fatal`, `FatalIf`方法，说明测试不通过，调用`Log`方法用来记录测试的信息。
 
-## 
+## 覆盖率
 
 方法中往往带有许多的条件判断，在不同的测试条件下，测试的结果各不相同。为了保证测试代码的质量，需要尽可能多的覆盖测试方法中的各种条件，而代码的测试覆盖率可做为评估单元测试测试质量的一个依据。
 
-在测试命令中附加参数-cover开启代码覆盖率统计，并且需要指定参与覆盖率检查的包-coverpkg {包名1},{包名2},...。
+在测试命令中附加参数-cover开启代码覆盖率统计
 
 例子：代码覆盖率检查
 
@@ -135,7 +135,7 @@ func TestAction(t *testing.T) {
 执行命令
 
 ```bash
-go test -v -cover demo/coverage
+go test -v -cover
 ```
 
 测试结果
@@ -149,6 +149,21 @@ PASS
 coverage: 60.0% of statements
 ok  	demo/coverage	0.003s	coverage: 60.0% of statements
 ```
+
+默认情况下只会检查\_test.go文件中引用到的包，通过附加参数-coverpkg {包名1},{包名2},...可以指定需要检查覆盖率的包。
+
+覆盖率检查可以生成可视化的测试报告，首先在测试的时候附加参数-coverprofile=coverage.data，将代码覆盖报告输出到coverage.data中，再通过命令go tool cover -html=coverage.data -o coverage.html根据覆盖报告生成一个html文件
+
+执行命令
+
+```bash
+go test -v -cover -coverprofile=coverage.data
+go tool cover -html=coverage.data -o coverage.html
+```
+
+通过浏览器打开生成的html文件即可查看代码覆盖情况
+
+![](../../.gitbook/assets/image%20%284%29.png)
 
 
 
