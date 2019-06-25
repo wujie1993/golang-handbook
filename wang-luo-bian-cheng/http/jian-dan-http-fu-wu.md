@@ -1,4 +1,4 @@
-# 基础http服务
+# http服务基础
 
 ## Handler
 
@@ -14,7 +14,7 @@ import (
 	"net/http"
 )
 
-// 以func(http.responseWriter,*http.Request)格式实现了一个http请求的handler方法
+// HelloServer 一个http.HandlerFunc，响应hello,world!
 func HelloServer(w http.ResponseWriter, req *http.Request) {
 	w.Write([]byte("hello,world!\n"))
 }
@@ -61,7 +61,7 @@ import (
 type HelloServer struct {
 }
 
-// ServeHTTP 用于处理http请求并响应结果
+// ServeHTTP 用于处理http请求并响应结果,返回hello,world!
 func (s HelloServer)ServeHTTP(res http.ResponseWriter, req *http.Request) {
 	res.Write([]byte("hello,world!\n"))
 }
@@ -190,5 +190,102 @@ hello,world!
 
 ```text
 curl: (52) Empty reply from server
+```
+
+## Middleware
+
+对于http服务，不同的请求路径会对应到不同的处理方法上，如果我们需要对这些方法做日志采集或异常处理等通用的行为，在每个处理方法体中去调用这些功能的实现是比较麻烦的，而且也不够优雅。
+
+我们可以使用装饰器模式实现一个中间层，在ServeMux路由分发器和HandlerFunc处理方法之间生效，让我们在不需要修改处理方法的情况下，为处理方法附加一些通用的功能。
+
+例子：http处理方法中间件
+
+```go
+package main
+
+import (
+	"log"
+	"net/http"
+	"time"
+)
+
+// LoggerMiddleware 日志中间件，为处理方法封装一层日志输出
+func LoggerMiddleware(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		start := time.Now()
+		log.Printf("Request %s %s", r.Method, r.URL.Path)
+		next.ServeHTTP(w, r)
+		log.Printf("Response %s in %v", r.URL.Path, time.Since(start))
+	})
+}
+
+// PanicMiddleware 异常处理中间件，为处理方法封装异常处理逻辑
+func PanicMiddleware(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		defer func() {
+			e := recover()
+			if err, ok := e.(error); ok {
+				log.Println(err)
+				w.Write([]byte(err.Error()))
+			} else {
+				log.Println(e)
+				w.Write([]byte("unknown error"))
+			}
+		}()
+		next.ServeHTTP(w, r)
+	})
+}
+
+// Hello 一个http.HandlerFunc处理方法,返回hello,world!
+func Hello(w http.ResponseWriter, req *http.Request) {
+	w.Write([]byte("hello,world!\n"))
+}
+
+// Panic 一个http.HandlerFunc处理方法，引发一个异常
+func Panic(w http.ResponseWriter, req *http.Request) {
+	panic("oh,we have got a panic!!!")
+}
+
+func main() {
+	// 为/hello路径下的处理方法Hello套上日志输出中间件
+	http.Handle("/hello", LoggerMiddleware(http.HandlerFunc(Hello)))
+	// 为/panic路径下的处理方法Panic套上日志输出和异常处理中间件
+	http.Handle("/panic", PanicMiddleware(LoggerMiddleware(http.HandlerFunc(Panic))))
+	http.ListenAndServe("localhost:8080", nil)
+}
+```
+
+服务端执行命令`go run main.go`启动http服务
+
+开启一个新的命令行控制台
+
+客户端执行`curl 127.0.0.1:8080/hello`
+
+**客户端输出**
+
+```text
+hello,world!
+```
+
+**服务端输出**
+
+```text
+2019/06/25 10:46:47 Request GET /hello
+2019/06/25 10:46:47 Response /hello in 16.0028ms
+```
+
+客户端执行`curl 127.0.0.1:8080/panic`
+
+**客户端输出**
+
+```text
+unknown error
+```
+
+**服务端输出**
+
+```text
+2019/06/25 10:47:32 Request GET /panic
+2019/06/25 10:47:32 oh,we have got a panic!!!
 ```
 
