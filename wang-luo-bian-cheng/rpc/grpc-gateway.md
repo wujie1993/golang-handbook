@@ -8,7 +8,7 @@ grpc服务的代理网关，将grpc服务接口转为restful接口对外提供�
 
 ## 下载与安装
 
-首先完成[grpc安装](https://app.gitbook.com/@golang-2/s/handbook/~/drafts/-LiBZ3G2k6CV2zEIOQsn/primary/wang-luo-bian-cheng/rpc/grpc#xia-zai-yu-an-zhuang)
+首先完成[grpc安装](https://golang-2.gitbook.io/handbook/wang-luo-bian-cheng/rpc/grpc#xia-zai-yu-an-zhuang)
 
 接下来安装相关的包
 
@@ -134,7 +134,9 @@ protoc -I/usr/local/include -I. \
 
 执行命令`go run main.go`启动grpc代理网关服务
 
-启动该[例子](https://app.gitbook.com/@golang-2/s/handbook/~/drafts/-LiBZ3G2k6CV2zEIOQsn/primary/wang-luo-bian-cheng/rpc/grpc#jian-dan-grpc-fu-wu)中的grpc服务端
+启动以下例子中的grpc服务端
+
+{% embed url="https://golang-2.gitbook.io/handbook/wang-luo-bian-cheng/rpc/grpc\#jian-dan-grpc-fu-wu" %}
 
 开启一个新的控制台，执行
 
