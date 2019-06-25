@@ -164,3 +164,15 @@ func private() {
 }
 ```
 
+## 第三方包下载
+
+一般情况下使用`go get`命令即可将包以及包所对应的依赖包都下载下来，而像是一些`golang.org/x/`下的包则需要连接到外网才能下载到。
+
+在没有翻墙手段的情况下，可以到github等代码仓库中找到对应的镜像包，如golang.org/x/net包在github中的镜像地址为[https://github.com/golang/net](https://github.com/golang/net)，使用`git`命令将包下载到$GOPATH/src/golang.org/x/net目录下即可。
+
+例子：免翻墙下载golang.org/x/net包
+
+```text
+git clone git@github.com:golang/net.git $GOPATH/src/golang.org/x/net
+```
+

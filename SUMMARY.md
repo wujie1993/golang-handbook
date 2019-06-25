@@ -48,13 +48,18 @@
 * [HTTP](wang-luo-bian-cheng/http/README.md)
   * [http服务基础](wang-luo-bian-cheng/http/jian-dan-http-fu-wu.md)
   * [Websocket](wang-luo-bian-cheng/http/websocket.md)
-  * [开源api框架](wang-luo-bian-cheng/http/kai-yuan-kuang-jia/README.md)
+  * [开源框架](wang-luo-bian-cheng/http/kai-yuan-kuang-jia/README.md)
     * [Beego](wang-luo-bian-cheng/http/kai-yuan-kuang-jia/beego.md)
-    * [grpc-gateway](wang-luo-bian-cheng/http/kai-yuan-kuang-jia/grpc-gateway.md)
+    * [Echo](wang-luo-bian-cheng/http/kai-yuan-kuang-jia/echo.md)
+    * [Gin](wang-luo-bian-cheng/http/kai-yuan-kuang-jia/untitled.md)
+    * [Iris](wang-luo-bian-cheng/http/kai-yuan-kuang-jia/iris.md)
+    * [Revel](wang-luo-bian-cheng/http/kai-yuan-kuang-jia/revel.md)
+    * [对比](wang-luo-bian-cheng/http/kai-yuan-kuang-jia/dui-bi.md)
 * [RPC](wang-luo-bian-cheng/rpc/README.md)
   * [RPCX](wang-luo-bian-cheng/rpc/rpcx.md)
   * [GRPC](wang-luo-bian-cheng/rpc/grpc.md)
-* [连接复用](wang-luo-bian-cheng/lian-jie-fu-yong.md)
+  * [grpc-gateway](wang-luo-bian-cheng/rpc/grpc-gateway.md)
+* [连接分发器](wang-luo-bian-cheng/lian-jie-fu-yong.md)
 * [TLS加密](wang-luo-bian-cheng/tls-jia-mi.md)
 
 ## 项目管理
@@ -74,4 +79,5 @@
   * [发布管理](xiang-mu-guan-li/cang-ku-guan-li/fa-bu-guan-li.md)
 * [持续集成](xiang-mu-guan-li/chi-xu-ji-cheng/README.md)
   * [CircleCI](xiang-mu-guan-li/chi-xu-ji-cheng/circleci.md)
+  * [TravisCI](xiang-mu-guan-li/chi-xu-ji-cheng/travisci.md)
 

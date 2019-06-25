@@ -261,13 +261,13 @@ func main() {
 
 客户端执行`curl 127.0.0.1:8080/hello`
 
-**客户端输出**
+客户端输出
 
 ```text
 hello,world!
 ```
 
-**服务端输出**
+服务端输出
 
 ```text
 2019/06/25 10:46:47 Request GET /hello
@@ -276,13 +276,13 @@ hello,world!
 
 客户端执行`curl 127.0.0.1:8080/panic`
 
-**客户端输出**
+客户端输出
 
 ```text
 unknown error
 ```
 
-**服务端输出**
+**服**务端输出
 
 ```text
 2019/06/25 10:47:32 Request GET /panic
