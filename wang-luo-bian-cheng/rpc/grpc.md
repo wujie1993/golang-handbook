@@ -139,7 +139,7 @@ service YourService {
 执行命令
 
 ```text
-protoc -I protos/ protos/helloworld.proto --go_out=plugins=grpc:protos
+protoc -I protos/ protos/helloworld.proto --go_out=plugins=grpc:.
 ```
 
 这时protos/目录下会生成文件helloworld.pb.go，该文件是grpc接口以及相关参数的定义

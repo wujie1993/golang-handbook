@@ -15,7 +15,7 @@ go get github.com/gorilla/websocket
 例子：通过Websocket实现双向通讯
 
 {% code-tabs %}
-{% code-tabs-item title="server.go" %}
+{% code-tabs-item title="server/main.go" %}
 ```go
 // Copyright 2015 The Gorilla WebSocket Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
@@ -152,10 +152,8 @@ You can change the message and send multiple times.
 `))
 ```
 {% endcode-tabs-item %}
-{% endcode-tabs %}
 
-{% code-tabs %}
-{% code-tabs-item title="client.go" %}
+{% code-tabs-item title="client/main.go" %}
 ```go
 // Copyright 2015 The Gorilla WebSocket Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
@@ -244,9 +242,17 @@ func main() {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-开启一个控制台，运行`go run server.go`启动http服务
+{% code-tabs %}
+{% code-tabs-item title="client.go" %}
+```go
 
-再开启一个新的控制台，运行`go run client.go`运行http客户端
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+开启一个控制台，运行`go run server/main.go`启动http服务
+
+再开启一个新的控制台，运行`go run client/main.go`运行http客户端
 
 这时客户端会开始往服务端发送时间戳，而服务端接收到时间戳后也会将时间戳返回给客户端，两边控制台中不断地输出时间戳，整个传输过程是在一个tcp连接中完成的。
 
