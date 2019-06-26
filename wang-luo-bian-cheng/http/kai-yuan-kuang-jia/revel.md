@@ -15,7 +15,7 @@
 下载与安装
 
 ```bash
-go get -u github.com/revel/cmd/revel
+go get -u -v github.com/revel/cmd/revel
 ```
 
 例子：简单的Revel服务

@@ -15,7 +15,7 @@ Iris是这个地球上通过社区驱动的最快网络框架，支持MVC，HTTP
 下载与安装
 
 ```bash
-go get -u github.com/kataras/iris
+go get -u -v github.com/kataras/iris
 ```
 
 例子：简单的Iris服务

@@ -39,9 +39,10 @@
   * [等待组](ji-chu/xie-cheng/deng-dai-zu.md)
   * [通道](ji-chu/xie-cheng/tong-dao.md)
   * [上下文](ji-chu/xie-cheng/shang-xia-wen-guan-li.md)
-* [测试](ji-chu/ce-shi/README.md)
+* [测试与分析](ji-chu/ce-shi/README.md)
   * [单元测试](ji-chu/ce-shi/dan-yuan-ce-shi.md)
   * [性能测试](ji-chu/ce-shi/xing-neng-ce-shi.md)
+  * [性能分析](ji-chu/ce-shi/xing-neng-fen-xi.md)
 
 ## 网络编程
 

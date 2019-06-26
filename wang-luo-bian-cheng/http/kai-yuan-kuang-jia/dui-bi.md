@@ -73,13 +73,49 @@ Gin在代码覆盖率上有着极佳的表现，Echo也是达到了优秀水准�
 
 可以看到Iris的功能支持是最多的，Beego次之，Echo和Revel相同，Gin最少。
 
+## 并发性能对比
+
+测试内容：以Get方法请求localhost:8080/hello路径，响应json格式结果{"say":"hello"}
+
+例子：100个并发总共10万条请求
+
+| 框架名称 | 每秒请求数 | 每条请求耗时 | 成功率 |
+| :--- | :--- | :--- | :--- |
+| Beego | 6844.08 | 14.611ms | 100% |
+| Echo | 6978.96 | 14.329ms | 100% |
+| Gin | 4963.04 | 20.149ms | 100% |
+| Iris | 4709.59 | 21.233ms | 100% |
+| Revel | 3618.16 | 27.638ms | 100% |
+
+例子：1000个并发总共10万条请求
+
+| 框架名称 | 每秒请求数 | 每条请求耗时 | 成功率 |
+| :--- | :--- | :--- | :--- |
+| Beego | 5977.45 | 167.295ms | 100% |
+| Echo | 6156.32 | 162.435ms | 100% |
+| Gin | 4743.96 | 210.794ms | 100% |
+| Iris | 4954.78 | 201.825ms | 100% |
+| Revel | 3348.33 | 298.656ms | 100% |
+
+例子：2000个并发总共10万条请求
+
+| 框架名称 | 每秒请求数 | 每条请求耗时 | 成功率 |
+| :--- | :--- | :--- | :--- |
+| Beego | 6018.58 | 332.304ms | 100% |
+| Echo | 6097.76 | 327.989ms | 100% |
+| Gin | 4924.29 | 406.150ms | 100% |
+| Iris | 4778.25 | 418.563ms | 100% |
+| Revel | 3370.39 | 593.404ms | 100% |
+
+从性能上看Beego和Echo是最高的，Gin和Iris次之，Revel较为一般
+
 ## 总结
 
-从成熟度上说Gin和Beego属于第一梯队，Echo中规中矩，Iris近期发展势头旺盛，Revel逐渐退出舞台。
+无论从成熟度还是社区热度上说Gin和Beego都是很高的，Echo中规中矩，Iris近期发展势头旺盛，Revel逐渐退出舞台。
 
-在性能方面Gin，Echo，Iris都是比较高的，Beego中规中矩，Revel性能一般。
+从性能上看Beego和Echo是最高的，Gin和Iris次之，Revel较为一般。
 
-在上手难度上Gin和Echo比较轻量容易学，Beego和Iris功能模块较多稍微庞大一些，Revel的设计理念有些许不同，难度较高。
+在上手难度上这几个框架都差不多，中英文档俱全，Iris和Beego在设计上由于功能模块众多，会稍微难一些。
 
 ## 词汇解析
 
@@ -197,7 +233,23 @@ myGroup.Handle("GET', "/{id}", getMessageByID)
 * 支持http会话并准备在特定处理程序中使用时。
 * 一些Web框架支持后端数据库来存储会话，因此您可以在服务器重新启动之间获得持久性。Buffalo使用gorilla会话，这些会话比其他实现慢一点。
 
-示例：`func setValue(context http_context){ s := Sessions.New(http_context) s.Set("key", "my value") } func getValue(context http_context){ s := Sessions.New(http_context) myValue := s.Get("key") } func logoutHandler(context http_context){ Sessions.Destroy(http_context) }`
+示例：
+
+```text
+func setValue(context http_context){ 
+    s := Sessions.New(http_context) 
+    s.Set("key", "my value") 
+}
+
+func getValue(context http_context){ 
+    s := Sessions.New(http_context) 
+    myValue := s.Get("key") 
+}
+
+func logoutHandler(context http_context){ 
+    Sessions.Destroy(http_context) 
+}
+```
 
 Wiki: [https://en.wikipedia.org/wiki/Hypertext\_Transfer\_Protocol\#HTTP\_session](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#HTTP_session)
 
@@ -289,7 +341,16 @@ Wiki: [https://en.wikipedia.org/wiki/Gzip](https://en.wikipedia.org/wiki/Gzip)
 
 当您可以使用特定的框架库测试HTTP时，它的工作就是帮助您轻松编写更好的测试。
 
-示例（目前，只有Iris支持）:`func TestAPI(t *testing.T) { app := myIrisApp() tt := httptest.New(t, app) tt.GET("/admin").WithBasicAuth("name","pass").Expect(). Status(httptest.StatusOK).Body().Equal("welcome") }`
+示例（目前，只有Iris支持）:
+
+```text
+func TestAPI(t *testing.T) { 
+    app := myIrisApp() 
+    tt := httptest.New(t, app) 
+    tt.GET("/admin").WithBasicAuth("name","pass").Expect().
+    Status(httptest.StatusOK).Body().Equal("welcome") 
+}
+```
 
 myIrisApp返回你想象中的Web应用程序，它有一个`/admin`的GET处理程序，受基本身份验证保护。
 

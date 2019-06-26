@@ -15,7 +15,7 @@ beego是用于快速开发RESTFUL API，web应用和后端服务。灵感来自�
 下载和安装
 
 ```text
-go get -u github.com/astaxie/beego
+go get -u -v github.com/astaxie/beego
 ```
 
 例子：简单的beego服务

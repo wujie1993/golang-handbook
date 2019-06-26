@@ -23,7 +23,7 @@ func main() {
 	// 将所有匹配到路径'/'的请求交由HelloServer方法处理
 	http.HandleFunc("/", HelloServer)
 	// 开启http服务并侦听到8080端口上，在不填地址的情况下会侦听所有地址
-	if err := http.ListenAndServe(":8080", nil); err != nil {
+	if err := http.ListenAndServe("localhost:8080", nil); err != nil {
 		fmt.Println(err)
 	}
 }
@@ -69,7 +69,7 @@ func (s HelloServer)ServeHTTP(res http.ResponseWriter, req *http.Request) {
 func main() {
 	// 将对于路径/下的请求交由实现了http.Handler接口的一个HelloServer对象处理
 	http.Handle("/", HelloServer{})
-	if err := http.ListenAndServe(":8080", nil); err != nil {
+	if err := http.ListenAndServe("localhost:8080", nil); err != nil {
 		fmt.Println(err)
 	}
 }
@@ -112,7 +112,7 @@ func main() {
 	// 将所有匹配到路径'/'的请求交由HelloServer方法处理并注入到自定义路由分发器中
 	mux.HandleFunc("/", HelloServer)
 	// 开启http服务并侦听到8080端口上，所有的请求都交由自定义路由分发器处理
-	if err := http.ListenAndServe(":8080", mux); err != nil {
+	if err := http.ListenAndServe("localhost:8080", mux); err != nil {
 		fmt.Println(err)
 	}
 }
@@ -162,7 +162,7 @@ func main() {
 
 	// 实例化一个自定义Server
 	server := http.Server{
-		Addr:         ":8080",
+		Addr:         "localhost:8080",
 		ReadTimeout:  5 * time.Second,
 		WriteTimeout: 5 * time.Second,
 		Handler:      mux,
@@ -288,4 +288,6 @@ unknown error
 2019/06/25 10:47:32 Request GET /panic
 2019/06/25 10:47:32 oh,we have got a panic!!!
 ```
+
+
 

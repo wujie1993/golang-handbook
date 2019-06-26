@@ -11,7 +11,7 @@
 下载和安装
 
 ```text
-go get -u github.com/gin-gonic/gin
+go get -u -v github.com/gin-gonic/gin
 ```
 
 例子：简单的Gin服务
