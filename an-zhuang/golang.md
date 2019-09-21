@@ -6,14 +6,14 @@
 
 ## 安装配置
 
-以安装golang-1.12.5-linux-amd64版为例：
+以安装go1.13.linux-amd64为例：
 
 ```bash
-wget https://dl.google.com/go/go1.12.5.linux-amd64.tar.gz
-tar -C /usr/local -xzf go1.12.5.linux-amd64.tar.gz
+wget https://dl.google.com/go/go1.13.linux-amd64.tar.gz
+tar -C /usr/local -xzf go1.13.linux-amd64.tar.gz
 ```
 
-打开`/etc/profile`配置环境变量
+编辑`/etc/profile`添加环境变量
 
 {% code-tabs %}
 {% code-tabs-item title="/etc/profile" %}
