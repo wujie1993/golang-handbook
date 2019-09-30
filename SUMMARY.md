@@ -5,9 +5,6 @@
 ## 安装
 
 * [安装Golang](an-zhuang/golang.md)
-* [开发环境](an-zhuang/vim-kai-fa-huan-jing/README.md)
-  * [Vim](an-zhuang/vim-kai-fa-huan-jing/vim.md)
-  * [VSCode](an-zhuang/vim-kai-fa-huan-jing/vscode.md)
 
 ## 基础
 
