@@ -40,5 +40,7 @@ go version
 go env
 ```
 
+## 准备开发环境
 
+{% embed url="https://viva.gitbook.io/project/sui-bi/ide" %}
 
