@@ -40,6 +40,9 @@
   * [单元测试](ji-chu/ce-shi/dan-yuan-ce-shi.md)
   * [性能测试](ji-chu/ce-shi/xing-neng-ce-shi.md)
   * [性能分析](ji-chu/ce-shi/xing-neng-fen-xi.md)
+* [编译](ji-chu/bian-yi/README.md)
+  * [条件编译](ji-chu/bian-yi/tiao-jian-bian-yi.md)
+  * [交叉编译](ji-chu/bian-yi/jiao-cha-bian-yi.md)
 
 ## 网络编程
 
