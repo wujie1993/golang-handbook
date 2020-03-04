@@ -35,8 +35,8 @@ git clone git@github.com:googleapis/go-genproto.git $GOPATH/src/google.golang.or
 
 ### 简单grpc服务
 
-{% code-tabs %}
-{% code-tabs-item title="server/main.go" %}
+{% tabs %}
+{% tab title="server/main.go" %}
 ```go
 package main
 
@@ -74,9 +74,9 @@ func main() {
 }
 
 ```
-{% endcode-tabs-item %}
+{% endtab %}
 
-{% code-tabs-item title="client/main.go" %}
+{% tab title="client/main.go" %}
 ```go
 package main
 
@@ -118,9 +118,9 @@ func main() {
 }
 
 ```
-{% endcode-tabs-item %}
+{% endtab %}
 
-{% code-tabs-item title="protos/helloworld.proto" %}
+{% tab title="protos/helloworld.proto" %}
 ```text
 syntax = "proto3";
 package example;
@@ -133,8 +133,8 @@ service YourService {
   rpc Echo(StringMessage) returns (StringMessage) {}
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 执行命令
 

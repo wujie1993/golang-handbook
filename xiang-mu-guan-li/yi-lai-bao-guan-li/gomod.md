@@ -4,8 +4,7 @@
 
 以一个简单的iris网站为例
 
-{% code-tabs %}
-{% code-tabs-item title="main.go" %}
+{% code title="main.go" %}
 ```go
 package main
 
@@ -22,8 +21,7 @@ func main() {
 	app.Run(iris.Addr("localhost:8080"))
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 在当前目录中，执行以下命令进行初始化：
 
@@ -41,15 +39,13 @@ go mod init {{ module名称 }}
 
 初始化完成后会在当前目录中生成一个go.mod文件，格式如下：
 
-{% code-tabs %}
-{% code-tabs-item title="go.mod" %}
+{% code title="go.mod" %}
 ```go
 module {{ module名称 }}
 
 go {{ golang版本 }}
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 使用以下命令生成包依赖并下载依赖包到$GOPATH中
 

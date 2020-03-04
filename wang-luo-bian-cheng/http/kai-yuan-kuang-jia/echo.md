@@ -16,8 +16,8 @@ Echo建议的使用方式是Gomod，因此我们需要把项目建立在`$GOPATH
 
 例子：简单的Echo服务
 
-{% code-tabs %}
-{% code-tabs-item title="main.go" %}
+{% tabs %}
+{% tab title="main.go" %}
 ```go
 package main
 
@@ -49,9 +49,9 @@ func hello(c echo.Context) error {
 }
 
 ```
-{% endcode-tabs-item %}
+{% endtab %}
 
-{% code-tabs-item title="go.mod" %}
+{% tab title="go.mod" %}
 ```go
 module echohello
 
@@ -78,8 +78,8 @@ replace (
 )
 
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 执行`go run main.go`将依赖包下载到本地并运行服务
 

@@ -4,8 +4,7 @@
 
 例子：序列化与反序列化性能测试
 
-{% code-tabs %}
-{% code-tabs-item title="b\_test.go" %}
+{% code title="b\_test.go" %}
 ```go
 package unittest
 
@@ -46,8 +45,7 @@ func BenchmarkUnmarshalJson(b *testing.B) {
 	}
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 使用`go test`命令默认不会执行性能测试方法，需要附加参数-test.bench，数值为正则表达式，用于指定执行方法名称匹配的测试方法。
 

@@ -8,8 +8,7 @@
 
 例子：方法单元测试
 
-{% code-tabs %}
-{% code-tabs-item title="a.go" %}
+{% code title="a.go" %}
 ```go
 package unittest
 
@@ -21,11 +20,9 @@ func Sub(x, y int) int {
 	return x - y
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
-{% code-tabs %}
-{% code-tabs-item title="a\_test.go" %}
+{% code title="a\_test.go" %}
 ```go
 package unittest
 
@@ -49,8 +46,7 @@ func TestSub(t *testing.T) {
 	}
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 运行命令`go test -v`执行单元测试，`-v`参数表示打印测试过程中输出的日志（查看更多的参数请使用`go test -h`）
 
@@ -89,8 +85,7 @@ ok  	_/root/Projects/demo/unittest	0.003s
 
 创建目录$GOPATH/src/demo/coverage/，分别创建代码文件action.go和测试文件action\_test.go
 
-{% code-tabs %}
-{% code-tabs-item title="action.go" %}
+{% code title="action.go" %}
 ```go
 package coverage
 
@@ -111,11 +106,9 @@ func Action(kind string) {
 	}
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
-{% code-tabs %}
-{% code-tabs-item title="action\_test.go" %}
+{% code title="action\_test.go" %}
 ```go
 package coverage_test
 
@@ -129,8 +122,7 @@ func TestAction(t *testing.T) {
 	coverage.Action("frog")
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 执行命令
 

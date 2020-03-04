@@ -8,8 +8,7 @@
 
 例子：Hello,world!
 
-{% code-tabs %}
-{% code-tabs-item title="main.go" %}
+{% code title="main.go" %}
 ```go
 // 定义包名main,表示该包为程序包
 package main
@@ -23,8 +22,7 @@ func main(){
     fmt.Println("Hello,world!")
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 {% embed url="https://play.golang.org/p/I6Kx7guxUmm" caption="在线例子：Hello,world!" %}
 

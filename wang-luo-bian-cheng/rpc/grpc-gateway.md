@@ -20,8 +20,8 @@ go get -u github.com/golang/protobuf/protoc-gen-go
 
 ## 例子：简单的grpc-gateway服务
 
-{% code-tabs %}
-{% code-tabs-item title="main.go" %}
+{% tabs %}
+{% tab title="main.go" %}
 ```go
 package main
 
@@ -71,9 +71,9 @@ func main() {
 }
 
 ```
-{% endcode-tabs-item %}
+{% endtab %}
 
-{% code-tabs-item title="protos/helloworld.proto" %}
+{% tab title="protos/helloworld.proto" %}
 ```text
 syntax = "proto3";
 package example;
@@ -93,8 +93,8 @@ service YourService {
   }
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 执行命令
 

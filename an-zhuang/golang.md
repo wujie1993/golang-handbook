@@ -15,14 +15,12 @@ tar -C /usr/local -xzf go1.13.linux-amd64.tar.gz
 
 编辑`/etc/profile`添加环境变量
 
-{% code-tabs %}
-{% code-tabs-item title="/etc/profile" %}
+{% code title="/etc/profile" %}
 ```bash
 export PATH=$PATH:/usr/local/go/bin:/root/go/bin
 export GOPATH=/root/go
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 让环境变量配置生效
 

@@ -8,8 +8,7 @@
 
 首先在代码仓库中创建`.circleci`目录，并在其中创建流水线配置文件`config.yml`。文件内容如下：
 
-{% code-tabs %}
-{% code-tabs-item title=".circleci/config.yml" %}
+{% code title=".circleci/config.yml" %}
 ```yaml
 # Golang CircleCI 2.0 configuration file
 #
@@ -23,8 +22,7 @@ jobs:
       - checkout
       - run: go build
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 将更新提交到代码仓库中，在配置完代码仓库账号绑定后，在CircleCI管理控制台左侧菜单点击`Add Projects`添加项目，选择要开启持续集成的仓库点击右侧按钮`Set Up Project`，在新页面中选择操作系统`Linux`和语言`Go`，点击下方`Start Building`。
 

@@ -14,8 +14,8 @@ go get github.com/gorilla/websocket
 
 例子：通过Websocket实现双向通讯
 
-{% code-tabs %}
-{% code-tabs-item title="server/main.go" %}
+{% tabs %}
+{% tab title="server/main.go" %}
 ```go
 // Copyright 2015 The Gorilla WebSocket Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
@@ -151,9 +151,9 @@ You can change the message and send multiple times.
 </html>
 `))
 ```
-{% endcode-tabs-item %}
+{% endtab %}
 
-{% code-tabs-item title="client/main.go" %}
+{% tab title="client/main.go" %}
 ```go
 // Copyright 2015 The Gorilla WebSocket Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
@@ -239,16 +239,14 @@ func main() {
 }
 
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
-{% code-tabs %}
-{% code-tabs-item title="client.go" %}
+{% code title="client.go" %}
 ```go
 
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 开启一个控制台，运行`go run server/main.go`启动http服务
 

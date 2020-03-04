@@ -20,8 +20,8 @@ go get -v github.com/smallnest/rpcx/...
 
 例子：简单rpcx服务
 
-{% code-tabs %}
-{% code-tabs-item title="protos/example.go" %}
+{% tabs %}
+{% tab title="protos/example.go" %}
 ```go
 package protos
 
@@ -43,9 +43,9 @@ func (t *Arith) Mul(ctx context.Context, args *Args, reply *Reply) error {
 	return nil
 }
 ```
-{% endcode-tabs-item %}
+{% endtab %}
 
-{% code-tabs-item title="server/main.go" %}
+{% tab title="server/main.go" %}
 ```go
 package main
 
@@ -71,9 +71,9 @@ func main() {
 }
 
 ```
-{% endcode-tabs-item %}
+{% endtab %}
 
-{% code-tabs-item title="client/main.go" %}
+{% tab title="client/main.go" %}
 ```go
 package main
 
@@ -114,8 +114,8 @@ func main() {
 }
 
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 执行`go run server/main.go`启动rpcx服务
 
