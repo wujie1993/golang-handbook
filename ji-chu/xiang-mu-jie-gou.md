@@ -1,4 +1,4 @@
-# Hello world
+# Hello,world!
 
 一个标准的`golang`项目主要分为两种：程序和包
 

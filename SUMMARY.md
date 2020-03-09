@@ -5,7 +5,7 @@
 
 ## 基础
 
-* [Hello world](ji-chu/xiang-mu-jie-gou.md)
+* [Hello,world!](ji-chu/xiang-mu-jie-gou.md)
 * [包](ji-chu/bao-de-yin-yong.md)
 * [变量](ji-chu/bian-liang.md)
 * [常量](ji-chu/chang-liang.md)
