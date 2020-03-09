@@ -1,10 +1,7 @@
 # Table of contents
 
 * [主页](README.md)
-
-## 安装
-
-* [安装Golang](an-zhuang/golang.md)
+* [安装](golang.md)
 
 ## 基础
 

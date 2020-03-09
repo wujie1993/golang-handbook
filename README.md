@@ -6,7 +6,7 @@ golang是由google开源的面向对象语言，支持跨平台开发，支持�
 
 {% embed url="https://golang.org/" %}
 
-### 代码仓库
+### 项目地址
 
 {% embed url="https://github.com/golang/go" %}
 
