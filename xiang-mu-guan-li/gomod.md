@@ -1,6 +1,6 @@
-# Gomod
+# 包管理
 
-## 模块初始化
+### 模块初始化
 
 以一个简单的iris网站为例
 
@@ -56,4 +56,12 @@ go get -u -v
 依赖包下载后即可执行go build或go run。也可以在还未执行go get的情况下执行go build或go run，这两个指令会事先检查go.mod和本地的依赖包，如果存在缺少依赖包的情况会自动进行go get。
 
 gomod获取依赖包的版本策略是优先获取最新的release，在没有release存在的情况下会获取最新的commit。
+
+### 模块精简
+
+```text
+go mod tidy
+```
+
+该命令会将go.mod中缺失的模块补全并移除不需要的模块
 
