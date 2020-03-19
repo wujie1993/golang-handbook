@@ -164,7 +164,7 @@ func private() {
 }
 ```
 
-## 第三方包下载
+## 包下载
 
 一般情况下使用`go get`命令即可将包以及包所对应的依赖包都下载下来，而像是一些`golang.org/x/`下的包则需要连接到外网才能下载到。
 
@@ -176,5 +176,10 @@ func private() {
 git clone git@github.com:golang/net.git $GOPATH/src/golang.org/x/net
 ```
 
+除此之外可以通过环境变量GOPROXY设置包下载代理服务地址
 
+```text
+go env -w GOPROXY=https://goproxy.cn,direct
+go env -w GO111MODULE=on
+```
 
