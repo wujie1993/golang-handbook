@@ -176,10 +176,17 @@ func private() {
 git clone git@github.com:golang/net.git $GOPATH/src/golang.org/x/net
 ```
 
-除此之外可以通过环境变量GOPROXY设置包下载代理服务地址
+也可以通过环境变量GOPROXY设置包下载代理服务地址
 
 ```text
-go env -w GOPROXY=https://goproxy.cn,direct
 go env -w GO111MODULE=on
+go env -w GOPROXY=https://goproxy.io,direct
 ```
+
+可选的代理地址如下：
+
+* https://goproxy.io
+* https://goproxy.cn
+
+
 
