@@ -55,7 +55,9 @@ go get -u -v
 
 依赖包下载后即可执行go build或go run。也可以在还未执行go get的情况下执行go build或go run，这两个指令会事先检查go.mod和本地的依赖包，如果存在缺少依赖包的情况会自动进行go get。
 
-gomod获取依赖包的版本策略是优先获取最新的release，在没有release存在的情况下会获取最新的commit。
+go mod获取依赖包的版本策略是优先获取最新的release，在没有release存在的情况下会获取最新的commit。
+
+下载的依赖包存放在$GOPATH/pkg/mod/目录下。
 
 ### 模块精简
 
