@@ -60,6 +60,44 @@ Inside my goroutine
 Finished Execution
 ```
 
+### 关闭通道
+
+通道本身并不提供关闭通道的方法，而是通过系统内置的close\(\)方法关闭通道。在通道关闭后再继续往通道写数据会引发panic错误，而读数据则可以持续读取到通道中没有值为止，读取通道支持多参数返回，其中第一个参数表示从通道中读出的值，第二个参数表示是否正确读出数据，在通道关闭的情况下会返回false，可以借此判断通道是否已经关闭
+
+例子：关闭通道
+
+```text
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+
+	// 创建一个通道
+	msgChan := make(chan string, 10)
+
+	// 先往通道写入一条记录
+	msgChan <- "a normal message"
+	
+	// 关闭通道
+	close(msgChan)
+
+	// 持续从通道中读取数据，ok值为false时，表示通道已经关闭且没有数据
+	for {
+		msg, ok:= <-msgChan
+		if !ok {
+			fmt.Println("chan already closed")
+			return
+		}
+		fmt.Printf("message: %s\n", msg)
+	}
+}
+```
+
+### 单向通道
+
 通常情况下通道是双向的，可读也可写。除此之外，出于安全性考虑，还分出了只读通道和只写通道两种单向通道。单向可以由双向通道转换，但不能转换回双向通道。
 
 定义只读通道：
