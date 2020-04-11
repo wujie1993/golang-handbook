@@ -56,6 +56,7 @@
     * [Iris](avanced/http/kai-yuan-kuang-jia/iris.md)
     * [Revel](avanced/http/kai-yuan-kuang-jia/revel.md)
     * [框架对比](avanced/http/kai-yuan-kuang-jia/dui-bi.md)
+  * [Kubernetes风格API框架](avanced/http/kubernetes-feng-ge-api-kuang-jia.md)
 * [RPC](avanced/rpc/README.md)
   * [RPCX](avanced/rpc/rpcx.md)
   * [GRPC](avanced/rpc/grpc.md)
