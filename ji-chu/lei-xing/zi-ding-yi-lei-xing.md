@@ -21,8 +21,6 @@ func main() {
 }
 ```
 
-{% embed url="https://play.golang.org/p/a1U-gLjEzgw" caption="在线例子：定义自定义类型" %}
-
 以上代码的执行结果：
 
 ```text

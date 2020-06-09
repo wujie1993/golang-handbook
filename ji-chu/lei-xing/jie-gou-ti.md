@@ -65,8 +65,6 @@ func main() {
 }
 ```
 
-{% embed url="https://play.golang.org/p/CDv\_gN3tpBp" caption="在线例子：定义结构体" %}
-
 以上代码的执行结果：
 
 ```text
@@ -134,8 +132,6 @@ func main() {
 }
 ```
 
-{% embed url="https://play.golang.org/p/0LRzWWzTP0D" caption="在线例子：结构体方法" %}
-
 以上代码的执行结果：
 
 ```text
@@ -183,8 +179,6 @@ func main() {
 	fmt.Println(p1.Name)
 }
 ```
-
-{% embed url="https://play.golang.org/p/gEgUAh0HV8p" caption="在线例子：结构体指针方法" %}
 
 以上代码的执行结果：
 
@@ -240,8 +234,6 @@ func main() {
 	s2.Ship.Sail()
 }
 ```
-
-{% embed url="https://play.golang.org/p/5GByIq3bpsM" caption="在线例子：结构体继承" %}
 
 以上代码的执行结果：
 
