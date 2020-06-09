@@ -78,8 +78,6 @@ func main() {
 
 ```
 
-{% embed url="https://play.golang.org/p/Sgt\_f3cbhdJ" caption="在线例子：通过上下文管理协程" %}
-
 以上代码的执行结果
 
 ```text

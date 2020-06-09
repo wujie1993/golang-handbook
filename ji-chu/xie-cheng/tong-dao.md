@@ -50,8 +50,6 @@ func main() {
 }
 ```
 
-{% embed url="https://play.golang.org/p/LvQNj4WGWUW" caption="在线例子：使用通道等待协程结束" %}
-
 以上代码执行结果：
 
 ```text
@@ -149,8 +147,6 @@ func main() {
 }
 
 ```
-
-{% embed url="https://play.golang.org/p/9C\_r3zEqSPV" caption="例子：使用单向通道" %}
 
 以上代码的运行结果：
 

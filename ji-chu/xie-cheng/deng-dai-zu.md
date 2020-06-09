@@ -41,8 +41,6 @@ func main() {
 }
 ```
 
-{% embed url="https://play.golang.org/p/M\_N\_v\_4xGSd" caption="在线例子：使用WaitGroup等待协程退出" %}
-
 以上代码的执行结果：
 
 ```text

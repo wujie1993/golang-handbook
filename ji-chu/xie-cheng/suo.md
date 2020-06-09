@@ -67,8 +67,6 @@ func main() {
 
 ```
 
-{% embed url="https://play.golang.org/p/mxnbwSzU5aM" caption="在线例子：多协程并发读写导致数据错误" %}
-
 以上代码的运行结果：
 
 ```text
@@ -156,8 +154,6 @@ func main() {
 }
 
 ```
-
-{% embed url="https://play.golang.org/p/OBophu\_uZDw" caption="在线例子：通过锁保证多协程操作的原子性" %}
 
 以上代码的运行结果：
 
@@ -267,8 +263,6 @@ func main() {
 }
 
 ```
-
-{% embed url="https://play.golang.org/p/HGlUbZoq6Xq" caption="例子：通过读写锁降低性能损耗" %}
 
 以上代码的运行结果：
 
