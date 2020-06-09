@@ -45,8 +45,6 @@ func CheckScore(score int) {
 }
 ```
 
-{% embed url="https://play.golang.org/p/B1cZIJz7loK" caption="在线例子：If条件判断" %}
-
 以上代码的执行结果：
 
 ```text
@@ -101,8 +99,6 @@ func CheckScore(score int) {
 	}
 }
 ```
-
-{% embed url="https://play.golang.org/p/bdsqFf1wTy2" caption="在线例子：无判断变量的switch语句" %}
 
 以上代码的执行结果：
 
@@ -166,8 +162,6 @@ func switchColor(color string) {
 	}
 }
 ```
-
-{% embed url="https://play.golang.org/p/e\_NehGEPO\_A" caption="在线例子：有判断变量的switch条件判断" %}
 
 以上代码的执行结果：
 

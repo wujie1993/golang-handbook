@@ -29,8 +29,6 @@ func BadFunc() error {
 }
 ```
 
-{% embed url="https://play.golang.org/p/F9oyl7gciwG" caption="在线例子：引发一个错误" %}
-
 以上代码的执行结果：
 
 ```text
@@ -69,8 +67,6 @@ func main() {
 }
 ```
 
-{% embed url="https://play.golang.org/p/3mF-FpJ8xu8" caption="在线例子：自定义错误" %}
-
 以上代码的执行结果：
 
 ```text
@@ -92,8 +88,6 @@ func main() {
 	panic("oh!no!!!")
 }
 ```
-
-{% embed url="https://play.golang.org/p/0Es6puiqwor" caption="在线例子：引发panic错误" %}
 
 以上代码的运行结果：
 
@@ -135,8 +129,6 @@ func main() {
 	panic("oh!no!!!")
 }
 ```
-
-{% embed url="https://play.golang.org/p/7fqmenUmziX" caption="在线例子：错误处理" %}
 
 以上代码运行结果：
 

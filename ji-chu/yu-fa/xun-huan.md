@@ -38,8 +38,6 @@ func main() {
 }
 ```
 
-{% embed url="https://play.golang.org/p/J6RhK8J4Agu" caption="在线例子：使用for循环遍历切片" %}
-
 以上代码的执行结果：
 
 ```text
@@ -97,8 +95,6 @@ func main() {
 }
 ```
 
-{% embed url="https://play.golang.org/p/ecHgaJyYO7A" caption="在线例子：通过range遍历切片" %}
-
 以上代码的执行结果：
 
 ```text
@@ -139,8 +135,6 @@ func main() {
 	}
 }
 ```
-
-{% embed url="https://play.golang.org/p/g8iSBFN1ggn" caption="在线例子：通过range遍历字典" %}
 
 以上代码的执行结果：
 
