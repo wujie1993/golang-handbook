@@ -37,8 +37,6 @@ func main() {
 }
 ```
 
-{% embed url="https://play.golang.org/p/O72Pf1RuHE4" caption="在线例子：空接口赋值与类型推断" %}
-
 以上代码的运行结果：
 
 ```text
@@ -126,8 +124,6 @@ func main() {
 }
 ```
 
-{% embed url="https://play.golang.org/p/6GKV7l2LIfH" caption="在线例子：接口调用" %}
-
 以上代码的执行结果：
 
 ```text
@@ -138,7 +134,7 @@ dog can swim.
 
 可以这么理解，接口只关心类型能否去执行某个方法，而不会去关心类型中有什么值
 
-### 类型转换
+### 类型推断
 
 将接口类型变量转换成其它类型需要使用类型推断，有三种书写方式：
 
