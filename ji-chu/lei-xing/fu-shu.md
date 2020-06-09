@@ -46,8 +46,6 @@ func main() {
 }
 ```
 
-{% embed url="https://play.golang.org/p/twT-YInCRn3" caption="在线例子：定义与输出复数" %}
-
 以上例子的输出结果：
 
 ```bash

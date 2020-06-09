@@ -40,8 +40,6 @@ func main() {
 }
 ```
 
-{% embed url="https://play.golang.org/p/K78gDWz1iuV" caption="在线例子：存在误差的浮点数比较" %}
-
 以上代码的执行输出结果会是`false`
 
 例子：根据精度比较浮点数
@@ -64,8 +62,6 @@ func IsEqual(x float64, y float64, precision float64) bool {
 	return math.Abs(x-y) < precision
 }
 ```
-
-{% embed url="https://play.golang.org/p/gmV-x4w9\_Td" caption="在线例子：根据精度比较浮点数" %}
 
 以上代码的输出结果会是`true`
 

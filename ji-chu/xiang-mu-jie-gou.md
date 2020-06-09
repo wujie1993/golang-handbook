@@ -24,8 +24,6 @@ func main(){
 ```
 {% endcode %}
 
-{% embed url="https://play.golang.org/p/I6Kx7guxUmm" caption="在线例子：Hello,world!" %}
-
 在`$GOPATH/src`路径下创建目录`helloworld`，并在该目录中创建上述文件`main.go`，执行以下命令执行代码：
 
 ```bash
