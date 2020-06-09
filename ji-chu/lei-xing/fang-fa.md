@@ -59,8 +59,6 @@ func main() {
 }
 ```
 
-{% embed url="https://play.golang.org/p/8qqNMVCvXlM" caption="例子：返回多个参数" %}
-
 以上代码的执行结果：
 
 ```text

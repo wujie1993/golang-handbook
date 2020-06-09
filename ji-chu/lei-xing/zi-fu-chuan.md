@@ -48,8 +48,6 @@ func main() {
 }
 ```
 
-{% embed url="https://play.golang.org/p/9O1De\_s8EHW" caption="在线例子：字符串与字符转换" %}
-
 以上的代码执行结果：
 
 ```bash
@@ -81,8 +79,6 @@ func main() {
 	fmt.Println(v2)
 }
 ```
-
-{% embed url="https://play.golang.org/p/GKAOcLKZyeT" caption="在线例子：字符串与整型转换" %}
 
 以上代码的执行结果：
 
@@ -145,8 +141,6 @@ func main() {
 	fmt.Println(v8)
 }
 ```
-
-{% embed url="https://play.golang.org/p/shrekBJB5KR" caption="在线例子：字符串的多种类型转换" %}
 
 以上代码的执行结果如下：
 

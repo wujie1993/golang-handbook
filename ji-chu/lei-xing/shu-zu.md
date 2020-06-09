@@ -39,8 +39,6 @@ func main() {
 }
 ```
 
-{% embed url="https://play.golang.org/p/HV445-0L8wh" caption="在线例子：数组初始化赋值" %}
-
 以上代码的执行结果：
 
 ```text

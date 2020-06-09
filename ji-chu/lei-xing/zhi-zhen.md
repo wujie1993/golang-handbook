@@ -86,8 +86,6 @@ func FuncA(p *int) {
 }
 ```
 
-{% embed url="https://play.golang.org/p/X9UmzOPjw-L" caption="在线例子：指针的引用传递" %}
-
 以上代码的执行结果：
 
 ```text
@@ -127,8 +125,6 @@ func main() {
 	fmt.Printf("element name: '%v', element kind: '%v'\n", typeOfPerson.Name(), typeOfPerson.Kind())
 }
 ```
-
-{% embed url="https://play.golang.org/p/m3X5gl5iScS" caption="在线例子：通过指针反射获取元素类型" %}
 
 以上代码的执行结果：
 

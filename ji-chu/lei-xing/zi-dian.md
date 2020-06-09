@@ -59,8 +59,6 @@ func main() {
 }
 ```
 
-{% embed url="https://play.golang.org/p/IV\_v\_1C2OyU" caption="在线例子：字典读写" %}
-
 以上代码的执行结果：
 
 ```text
@@ -101,8 +99,6 @@ func main() {
 	fmt.Println(len(m1))
 }
 ```
-
-{% embed url="https://play.golang.org/p/NWqsPXxikhq" caption="在线例子：删除字典元素" %}
 
 以上代码的执行结果：
 
