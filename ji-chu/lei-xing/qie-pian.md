@@ -76,8 +76,6 @@ func main() {
 }
 ```
 
-{% embed url="https://play.golang.org/p/rnmt3xY\_Xcy" caption="在线例子：通过数组创建切片" %}
-
 以上代码的执行结果：
 
 ```text
@@ -112,8 +110,6 @@ func main() {
 	fmt.Println(s1[3])
 }
 ```
-
-{% embed url="https://play.golang.org/p/XAm3PlMkXRt" caption="在线例子：读取切片元素" %}
 
 以上代码的输出结果：
 
@@ -164,8 +160,6 @@ func main() {
 }
 ```
 
-{% embed url="https://play.golang.org/p/no4GVd5wVQ6" caption="在线例子：追加切片元素" %}
-
 以上代码的运行结果：
 
 ```text
@@ -201,8 +195,6 @@ func main() {
 }
 ```
 
-{% embed url="https://play.golang.org/p/mijxApWnXoY" caption="在线例子：追加多个切片元素" %}
-
 以上代码的执行结果：
 
 ```text
@@ -235,12 +227,43 @@ func main() {
 }
 ```
 
-{% embed url="https://play.golang.org/p/Ymp9uJ\_iAwB" caption="在线例子：切片合并" %}
-
 以上代码的执行结果：
 
 ```text
 [mike lili mary tony lucy milk checken egg]
+```
+
+## 切片元素插入
+
+插入元素到切片中的实现方式是将插入位置后半部的切片先临时保存，再为前半部的切片追加要插入的元素，最后追加临时保存的后半部切片
+
+例子：切片插入
+
+```text
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var s1 []string = []string{"mike", "lili", "mary", "tony", "lucy"}
+	var v1 = "trump"
+	
+	// 在切片s1的下标位置n插入元素v1
+	n := 3
+	tmp := append([]string{}, s1[n:]...)
+	s1 = append(s1[:n], v1)
+	s1 = append(s1, tmp...)
+
+	fmt.Println(s1)
+}
+```
+
+以上代码的执行结果：
+
+```text
+[mike lili mary trump tony lucy]
 ```
 
 ## 切片元素删除
@@ -266,8 +289,6 @@ func main() {
 	fmt.Println(s1)
 }
 ```
-
-{% embed url="https://play.golang.org/p/REq7wDJ26Xs" caption="在线例子：切片元素删除" %}
 
 以上代码的执行结果：
 
@@ -311,8 +332,6 @@ func main() {
 }
 ```
 
-{% embed url="https://play.golang.org/p/c33iErRRPbw" caption="在线例子：切片元素复制" %}
-
 以上代码的执行结果：
 
 ```text
@@ -349,8 +368,6 @@ func ChangeSlice(slice []string, index int, value string) {
 	slice[index] = value
 }
 ```
-
-{% embed url="https://play.golang.org/p/IOdhgygL3tl" caption="在线例子：切片引用传递" %}
 
 以上代码的执行结果：
 
