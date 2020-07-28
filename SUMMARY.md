@@ -64,6 +64,7 @@
   * [grpc-gateway](avanced/rpc/grpc-gateway.md)
 * [连接分发器](avanced/lian-jie-fu-yong.md)
 * [TLS加密](avanced/tls-jia-mi.md)
+* [go代码解析](avanced/go-dai-ma-jie-xi.md)
 
 ## 项目管理
 
