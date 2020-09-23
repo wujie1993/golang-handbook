@@ -4,11 +4,24 @@
 
 在内置包`context`中，有一种Context结构可以用于应对这种场景，实现对于协程的批量管理。其原理是在主方法创建一个Context对象，通过该对象再派生出子Context对象，子Context对象可以包含像是超时时间，截止时间，终止方法，携带参数等属性。
 
+Context是一个协程安全的类型，可以将同一个Context传递给不同的协程方法使用。
+
 将派生出的子Context以参数的形式传入协程方法中，协程中的任务在循环执行的间隔期不断地通过select语句检查该子Context状态的Done通道，如果接收到信号则说明上下文被关闭，当前协程应该退出了，否则会继续执行协程中的任务。
 
 在主方法中，当确认协程需要退出时，会调用Context创建时产生的Cancel\(\)方法，这时该Context和该Context所派生的每个子Context都会在其Done通道中接收到结束信号，协程获取到该结束信号后，就可以终止运行退出协程。
 
-Context是一个协程安全的类型，可以将同一个Context传递给不同的协程方法使用
+select命令的语法与switch相似，区别是select语法中是判断哪个case的通道最先出队，当所有case通道都阻塞时，整个select语句块也会同样阻塞。为了避免select出现永久阻塞，可以加default语句块，表示在所有的case都无法出队时则运行default中的逻辑。
+
+```text
+select {
+case <-chan1:
+    ...
+case val := <-chan2:
+    ...
+default:
+    ...
+}
+```
 
 例子：通过上下文管理协程
 
