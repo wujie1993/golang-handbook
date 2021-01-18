@@ -75,6 +75,10 @@ ok  	_/root/Projects/demo/unittest	0.003s
 * 测试方法格式：`func TestXxx (t *testing.T)`,`Xxx`部分可以为任意的字母数字的组合，但是首字母必须是大写；
 * 函数中通过调用`testing.T`的`Error`, `Errorf`, `FailNow`, `Fatal`, `FatalIf`方法，说明测试不通过，调用`Log`方法用来记录测试的信息。
 
+## 接口测试
+
+{% embed url="https://zhuanlan.zhihu.com/p/138453700" %}
+
 ## 覆盖率
 
 方法中往往带有许多的条件判断，在不同的测试条件下，测试的结果各不相同。为了保证测试代码的质量，需要尽可能多的覆盖测试方法中的各种条件，而代码的测试覆盖率可做为评估单元测试测试质量的一个依据。
